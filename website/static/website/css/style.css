@@ -1,7 +1,16 @@
+/* GLOBAL */
+
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family:'Poppins', sans-serif;
     background:#f5f5f5;
-    color:#f7f1f1;
+    color:#333;
+}
+
+/* HEADINGS */
+
+h1,h2,h3,h4,h5{
+    color:#111;
+    font-weight:700;
 }
 
 /* NAVBAR */
@@ -15,31 +24,43 @@ body{
     color:#d4af37 !important;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero{
-height:90vh;
-
-background-size:cover;
-background-position:center;
-
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-
-animation:zoomHero 20s infinite alternate;
+    height:90vh;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    animation:zoomHero 20s infinite alternate;
 }
 
-background-size:cover;
-background-position:center;
+.hero{
+    position:relative;
+}
 
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+}
 
-animation:zoomHero 20s infinite alternate;
+.hero .container{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    text-shadow:0 5px 20px rgba(34, 32, 32, 0.7);
+}
+
+.hero h1{
+    color:white;
+    text-shadow:0 4px 15px rgba(0,0,0,0.7);
 }
 
 @keyframes zoomHero{
@@ -48,13 +69,13 @@ animation:zoomHero 20s infinite alternate;
 }
 
 .hero h1{
-font-size:60px;
-font-weight:700;
-animation:fadeInUp 2s;
+    font-size:60px;
+    font-weight:700;
+    animation:fadeInUp 2s;
 }
 
 .hero p{
-animation:fadeInUp 3s;
+    animation:fadeInUp 3s;
 }
 
 @keyframes fadeInUp{
@@ -65,219 +86,287 @@ to{opacity:1; transform:translateY(0);}
 /* SERVICES */
 
 .services{
-padding:80px 0;
-background:white;
+    padding:80px 0;
+    background:white;
 }
 
 .service-card{
-background: rgba(255,255,255,0.85);
-backdrop-filter: blur(6px);
-border:none;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-transition:.3s;
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(6px);
+    border:none;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transition:.3s;
 }
 
 .service-card:hover{
-transform:translateY(-10px);
+    transform:translateY(-10px);
 }
 
 .service-title{
-color:#d4af37;
+    color:#d4af37;
+    font-weight:600;
 }
 
+/* IMAGES */
+
 img{
-transition:0.3s;
+    transition:0.3s;
 }
 
 img:hover{
-transform:scale(1.05);
+    transform:scale(1.05);
 }
 
-footer{
+/* FOOTER */
+
+.footer{
 background:#000;
-padding:20px;
-color:white;
+padding:60px 0 20px 0;
+}
+
+.footer-brand{
+color:#d4af37;
+font-weight:700;
+}
+
+.footer-title{
+color:#d4af37;
+margin-bottom:15px;
+}
+
+.footer-links{
+list-style:none;
+padding:0;
+}
+
+.footer-links li{
+margin-bottom:8px;
+}
+
+.footer-links a{
+color:#ccc;
+text-decoration:none;
+transition:.3s;
+}
+
+.footer-links a:hover{
+color:#d4af37;
+}
+
+.footer-divider{
+border-color:#333;
+margin:30px 0;
+}
+
+.footer{
+background:linear-gradient(#000,#111);
+}
+
+/* FOOTER BRAND */
+
+.footer-brand-wrapper{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+/* BARBER POLE */
+
+.footer-pole{
+width:35px;
+height:35px;
+animation:spinPole 6s linear infinite;
+}
+
+/* SPIN ANIMATION */
+
+@keyframes spinPole{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+/* GALLERY GRID */
+
+.section-title{
+color:#d4af37;
+font-weight:700;
 }
 
 /* GALLERY GRID */
 
 .gallery-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
+grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+gap:20px;
+max-width:1100px;
+margin:auto;
 }
 
-.gallery-item{
-overflow:hidden;
-border-radius:10px;
-}
-
-.gallery-item img{
-width:100%;
-height:350px;
-object-fit:cover;
-object-position:top;
-}
-
-.gallery-item img:hover{
-transform:scale(1.1);
-}
+/* IMAGE CARD */
 
 .gallery-item{
 overflow:hidden;
 border-radius:12px;
-cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
-.before-after{
-position:relative;
-max-width:500px;
+/* IMAGE SIZE */
+
+.gallery-item img{
+width:100%;
+height:220px;
+object-fit:cover;
+transition:0.3s;
+}
+
+/* HOVER EFFECT */
+
+.gallery-item img:hover{
+transform:scale(1.08);
+}
+
+.gallerySwiper img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+transition:.3s;
+}
+
+.gallerySwiper img:hover{
+transform:scale(1.05);
+}
+
+.gallerySwiper{
+max-width:1100px;
 margin:auto;
-overflow:hidden;
+padding:20px 0;
 }
 
-.after-img{
-position:absolute;
-top:0;
-left:0;
-width:50%;
-overflow:hidden;
+.swiper-slide{
+display:flex;
+justify-content:center;
 }
 
-.slider{
-position:absolute;
-bottom:10px;
-left:50%;
-transform:translateX(-50%);
-width:80%;
+.swiper-slide img{
+width:100%;
+max-width:260px;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* WHATSAPP FLOAT BUTTON */
+/* WHATSAPP BUTTON */
 
 .whatsapp-float{
 position:fixed;
-bottom:25px;
-right:25px;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:10px 16px;
+border-radius:30px;
+font-size:14px;
+display:flex;
+align-items:center;
+gap:8px;
+text-decoration:none;
 z-index:999;
 }
 
 .whatsapp-float img{
-width:60px;
-height:60px;
-border-radius:50%;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
-transition:0.3s;
-}
-
-.whatsapp-float img:hover{
-transform:scale(1.1);
-}
-
-.whatsapp-float{
-display:flex;
-align-items:center;
-gap:10px;
-background:#25D366;
-color:white;
-padding:10px 15px;
-border-radius:30px;
-font-weight:600;
-text-decoration:none;
+width:20px;
+height:20px;
 }
 
 /* ANIMATED SERVICES BACKGROUND */
 
 .animated-services{
-background: linear-gradient(
-    270deg,
-    #f5f5f5,
-    #f0e6c3,
-    #f5f5f5,
-    #e8e8e8
-);
+    background:linear-gradient(
+        270deg,
+        #f5f5f5,
+        #f0e6c3,
+        #f5f5f5,
+        #e8e8e8
+    );
 
-background-size: 800% 800%;
-
-animation: servicesGradient 15s ease infinite;
-
-padding:80px 0;
+    background-size:800% 800%;
+    animation:servicesGradient 15s ease infinite;
+    padding:80px 0;
 }
 
 @keyframes servicesGradient{
 
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 
 }
 
 /* GALLERY AUTO SLIDER */
 
 .gallery-slider{
-background:#111;
-overflow:hidden;
+    background:#111;
+    overflow:hidden;
+    padding:50px 0;
 }
 
 .slider-track{
-display:flex;
-gap:20px;
-animation:scrollGallery 30s linear infinite;
+    display:flex;
+    gap:20px;
+    animation:scrollGallery 30s linear infinite;
 }
 
 .slide{
-min-width:250px;
-flex-shrink:0;
+    min-width:250px;
+    flex-shrink:0;
 }
 
 .slide img{
-width:100%;
-height:300px;
-object-fit:cover;
-border-radius:10px;
-transition:.3s;
-}
-
-.slide img:hover{
-transform:scale(1.05);
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:10px;
 }
 
 @keyframes scrollGallery{
 
-0%{
-transform:translateX(0);
-}
-
-100%{
-transform:translateX(-50%);
-}
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
 
 }
 
-.barber-card img{
-
-width:150px;
-height:150px;
-object-fit:cover;
-border:4px solid #ffc107;
-
-}
+/* BARBER TEAM */
 
 .barber-card{
-
-transition:.3s;
-
+    transition:.3s;
 }
 
 .barber-card:hover{
+    transform:translateY(-8px);
+}
 
-transform:translateY(-8px);
+.barber-card img{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border:4px solid #ffc107;
+    border-radius:50%;
+}
 
+.barber-img{
+width:180px;
+height:180px;
+object-fit:cover;
+border:5px solid #d4a017;
+margin:auto;
+display:block;
 }

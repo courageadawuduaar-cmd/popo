@@ -3,18 +3,20 @@
 
 {% block content %}
 
-<section class="container p-4">
+<section class="container py-5">
 
-<h2 class="text-center mb-5">Haircut Gallery</h2>
+<h2 class="text-center mb-5 section-title">Haircut Gallery</h2>
 
-<div class="gallery-grid">
+<div class="swiper gallerySwiper">
+
+<div class="swiper-wrapper">
 
 {% for image in images %}
 
-<div class="gallery-item">
+<div class="swiper-slide">
 
 <a href="{{ image.image.url }}" class="glightbox" data-gallery="cuts">
-    <img src="{{ image.image.url }}" alt="{{ image.title }}">
+<img src="{{ image.image.url }}" alt="{{ image.title }}">
 </a>
 
 </div>
@@ -23,6 +25,46 @@
 
 </div>
 
+</div>
+
 </section>
+
+<script>
+
+const swiper = new Swiper('.gallerySwiper', {
+
+slidesPerView: 4,
+spaceBetween: 20,
+
+loop: true,
+
+autoplay: {
+delay: 2500,
+disableOnInteraction: false,
+},
+
+breakpoints: {
+
+0: {
+slidesPerView: 1
+},
+
+576: {
+slidesPerView: 2
+},
+
+768: {
+slidesPerView: 3
+},
+
+1024: {
+slidesPerView: 4
+}
+
+}
+
+});
+
+</script>
 
 {% endblock %}
