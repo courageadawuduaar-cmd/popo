@@ -13,10 +13,14 @@
 
 {% for image in images %}
 
-<div class="swiper-slide">
+<div class="swiper-slide text-center">
 
 <a href="{{ image.image.url }}" class="glightbox" data-gallery="cuts">
-<img src="{{ image.image.url }}" alt="{{ image.title }}">
+
+<img src="{{ image.image.url }}" 
+alt="{{ image.title }}" 
+class="img-fluid rounded shadow">
+
 </a>
 
 </div>
@@ -29,14 +33,24 @@
 
 </section>
 
+{% endblock %}
+
+{% block extra_js %}
+
 <script>
 
 const swiper = new Swiper('.gallerySwiper', {
 
-slidesPerView: 4,
+loop: true,
+
 spaceBetween: 20,
 
-loop: true,
+grabCursor: true,
+
+centeredSlides: true,
+
+touchRatio: 1,
+touchAngle: 45,
 
 autoplay: {
 delay: 2500,
