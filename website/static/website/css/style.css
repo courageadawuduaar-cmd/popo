@@ -27,60 +27,72 @@ h1,h2,h3,h4,h5{
 /* HERO SECTION */
 
 .hero{
-    height:90vh;
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-    animation:zoomHero 20s infinite alternate;
+height:90vh;
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+position:relative;
+animation:zoomHero 20s infinite alternate;
 }
 
-.hero{
-    position:relative;
-}
+/* LIGHTER OVERLAY FOR BRIGHTER IMAGE */
 
 .hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.55);
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.22); /* lighter overlay */
 }
+
+/* HERO CONTENT ABOVE OVERLAY */
 
 .hero .container{
-    position:relative;
-    z-index:2;
+position:relative;
+z-index:2;
 }
 
-.hero h1{
-    text-shadow:0 5px 20px rgba(34, 32, 32, 0.7);
-}
+/* HERO TITLE */
 
 .hero h1{
-    color:white;
-    text-shadow:0 4px 15px rgba(0,0,0,0.7);
+font-size:60px;
+font-weight:700;
+color:white;
+text-shadow:0 4px 15px rgba(0,0,0,0.6);
+animation:fadeInUp 2s;
 }
+
+/* HERO SUBTEXT */
+
+.hero p{
+font-size:18px;
+animation:fadeInUp 3s;
+}
+
+/* ZOOM BACKGROUND ANIMATION */
 
 @keyframes zoomHero{
 0%{background-size:100%;}
 100%{background-size:120%;}
 }
 
-.hero h1{
-    font-size:60px;
-    font-weight:700;
-    animation:fadeInUp 2s;
-}
-
-.hero p{
-    animation:fadeInUp 3s;
-}
+/* TEXT FADE ANIMATION */
 
 @keyframes fadeInUp{
-from{opacity:0; transform:translateY(40px);}
-to{opacity:1; transform:translateY(0);}
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 /* SERVICES */
