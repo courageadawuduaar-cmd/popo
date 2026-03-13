@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- HERO -->
+
+<section class="hero"
+style="background:
+linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+url('{% static "website/images/hero.jpg" %}') center/cover;">
+
+<div>
+
+<h1>Clean Cuts <span>Fresh Style</span></h1>
+
+<p class="lead mt-3">
+Premium barber services for gentlemen.
+</p>
+
+<a href="{% url 'booking' %}" class="btn btn-warning btn-lg mt-4">
+Book Appointment
+</a>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services animated-services">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Our Services</h2>
+
+<div class="row g-4">
+
+{% for service in services %}
+
+<div class="col-md-4">
+
+<div class="card service-card p-4 text-center">
+
+<h4 class="service-title">{{ service.name }}</h4>
+
+<p>{{ service.description }}</p>
+
+<h5>₵{{ service.price }}</h5>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+<!-- HAIRCUT GALLERY SLIDER -->
+
+<section class="gallery-slider py-5">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Recent Haircuts</h2>
+
+<div class="slider-track">
+
+{% for image in gallery %}
+
+<div class="slide">
+
+<a href="{{ image.image.url }}" class="glightbox">
+<img src="{{ image.image.url }}" class="img-fluid">
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BEFORE & AFTER TRANSFORMATIONS -->
+
+<section class="container py-5">
+
+<h2 class="text-center mb-5">Before & After</h2>
+
+<div class="row">
+
+{% for t in transformations %}
+
+<div class="col-md-6 mb-4">
+
+<div class="row">
+
+<div class="col-6">
+<img src="{{ t.before_image.url }}" class="img-fluid rounded shadow">
+</div>
+
+<div class="col-6">
+<img src="{{ t.after_image.url }}" class="img-fluid rounded shadow">
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+<!-- BARBER TEAM -->
+
+<section class="py-5">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Meet Our Barbers</h2>
+
+<div class="row">
+
+{% for barber in barbers %}
+
+<div class="col-md-3 text-center mb-4">
+
+<div class="barber-card">
+
+<img src="{{ barber.photo.url }}" class="img-fluid rounded-circle mb-3">
+
+<h5>{{ barber.name }}</h5>
+
+<p class="text-muted">{{ barber.role }}</p>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<h2 class="text-center mb-5">What Our Clients Say</h2>
+
+<div class="row">
+
+{% for testimonial in testimonials %}
+
+<div class="col-md-4">
+
+<div class="card p-4 shadow-sm">
+
+<p>"{{ testimonial.message }}"</p>
+
+<h6 class="mt-3">- {{ testimonial.name }}</h6>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

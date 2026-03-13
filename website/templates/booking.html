@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<h2 class="text-center mb-4">Book Appointment</h2>
+
+<form method="POST" action="{% url 'booking' %}" class="col-md-6 mx-auto">
+
+{% csrf_token %}
+
+<div class="mb-3">
+<label class="form-label">Name</label>
+<input type="text" name="name" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Phone</label>
+<input type="text" name="phone" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Service</label>
+<select name="service" class="form-control">
+
+{% for service in services %}
+<option value="{{ service.id }}">
+{{ service.name }} - ₵{{ service.price }}
+</option>
+{% endfor %}
+
+</select>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Date</label>
+<input type="date" name="date" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Time</label>
+<input type="time" name="time" class="form-control" required>
+</div>
+
+<button type="submit" class="btn btn-dark w-100">
+Book Appointment
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

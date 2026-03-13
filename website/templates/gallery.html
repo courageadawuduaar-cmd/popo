@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="container p-4">
+
+<h2 class="text-center mb-5">Haircut Gallery</h2>
+
+<div class="gallery-grid">
+
+{% for image in images %}
+
+<div class="gallery-item">
+
+<a href="{{ image.image.url }}" class="glightbox" data-gallery="cuts">
+    <img src="{{ image.image.url }}" alt="{{ image.title }}">
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+{% endblock %}
