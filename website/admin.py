@@ -27,8 +27,12 @@ class BookingAdmin(admin.ModelAdmin):
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ("title", "created")
 
-
 admin.site.register(BeforeAfter)
 
-
 admin.site.register(Barber)
+
+from django.contrib import admin
+
+admin.site.site_header = ".popo.blades Administration"
+admin.site.site_title = "PoPo Admin"
+admin.site.index_title = "Welcome to .popo.blades Administration"
