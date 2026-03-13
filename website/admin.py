@@ -27,7 +27,9 @@ class BookingAdmin(admin.ModelAdmin):
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ("title", "created")
 
+
 admin.site.register(BeforeAfter)
+
 
 admin.site.register(Barber)
 
