@@ -1,8 +1,13 @@
+{% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-dark">
 
 <div class="container">
 
-<a class="navbar-brand" href="#">💈 popo.blades</a>
+<a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+    <img src="{% static 'website/images/popo-logo.png' %}" height="40" class="me-2">
+    <span class="fw-bold">popo.blades</span>
+</a>
 
 <button class="navbar-toggler" type="button"
 data-bs-toggle="collapse"
